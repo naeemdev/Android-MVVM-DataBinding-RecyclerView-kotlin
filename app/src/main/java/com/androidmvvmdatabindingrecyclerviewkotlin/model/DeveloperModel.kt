@@ -1,5 +1,6 @@
 package com.androidmvvmdatabindingrecyclerviewkotlin.model
 
+import android.util.Log
 import android.widget.ImageView
 
 import androidx.databinding.BindingAdapter
@@ -13,27 +14,40 @@ import com.google.gson.annotations.SerializedName
 
 class DeveloperModel {
 
-    @SerializedName("username")
-    var username: String? = null
-    @SerializedName("name")
-    var name: String? = null
 
-    @SerializedName("avatar")
-    var avatar: String? = null
 
-    companion object {
 
-        @BindingAdapter("avatar")
+
+
+    @SerializedName("login")
+    var login: String? = null
+
+    @SerializedName("avatar_url")
+    var avatar_url: String? = null
+
+
+
+
+    companion object  {
+
+      
+        @JvmStatic
+        @BindingAdapter("avatar_url")
         fun loadImage(imageView: ImageView, imageURL: String) {
 
+            Log.e("imsgeurl",imageURL)
             Glide.with(imageView.context)
                 .setDefaultRequestOptions(
                     RequestOptions()
                         .circleCrop()
                 )
                 .load(imageURL)
-                .placeholder(R.mipmap.ic_launcher)
+
                 .into(imageView)
         }
+
     }
+
+
+
 }

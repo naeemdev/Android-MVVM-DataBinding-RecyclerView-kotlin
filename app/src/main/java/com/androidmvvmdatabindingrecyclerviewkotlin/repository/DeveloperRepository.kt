@@ -1,5 +1,6 @@
 package com.androidmvvmdatabindingrecyclerviewkotlin.repository
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 
 import com.androidmvvmdatabindingrecyclerviewkotlin.model.DeveloperModel
@@ -39,7 +40,9 @@ class DeveloperRepository {
                 val gson = GsonBuilder().create()
 
                 if (resp != null && resp.body() != null) {
+
                     val json = JsonParser().parse(resp.body()!!.toString()).asJsonArray
+                    //Log.e("data",json.toString())
                     if (json != null) {
 
                         for (i in 0..json.size() - 1) {

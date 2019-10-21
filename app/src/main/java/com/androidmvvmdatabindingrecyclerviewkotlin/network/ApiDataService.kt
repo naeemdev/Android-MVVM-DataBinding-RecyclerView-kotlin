@@ -9,7 +9,7 @@ import retrofit2.http.GET
 interface ApiDataService {
 
 
-    @get:GET("developers")
+    @get:GET("users")
     val apiRequestsArray: Call<JsonArray>
 
 }
